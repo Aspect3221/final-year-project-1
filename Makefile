@@ -46,7 +46,7 @@ log-db-watch:
 web:
 	docker compose exec web bash
 app:
-	docker compose exec app bash
+	docker-compose exec app bash
 migrate:
 	docker compose exec app php artisan migrate
 fresh:

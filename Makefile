@@ -9,7 +9,7 @@ install:
 	exit"
 	cd src && \
 	npm install && \
-	npm run buildgit
+	npm run build
 up:
 	docker-compose up -d
 build:

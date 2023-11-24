@@ -14,10 +14,12 @@
         <!-- Scripts -->
         <wireui:scripts />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <livewire:layout.navigation />
+            @livewire('wire-elements-modal')
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -33,5 +35,6 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScripts
     </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::view('dashboard', 'dashboard')->name('dashboard');
+
+    Route::get('dashboard/donate', [DonationController::class, 'index'])->name('dashboard.donate');
+    Route::post('dashboard/donate/submit', [DonationController::class, 'store'])->name('dashboard.donate.submit');
+    Route::get('dashboard/faq', [FaqController::class, 'index'])->name('dashboard.faq');
+    Route::get('dashboard/faq/nisab-rate', [FaqController::class, 'nisabRate'])->name('dashboard.faq.nisab-rate');
+
+});
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+
 
 require __DIR__.'/auth.php';

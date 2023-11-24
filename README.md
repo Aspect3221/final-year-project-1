@@ -1,4 +1,4 @@
-# CRUD-API
+# Zakat web app
 
 ### Prerequisites
 - Docker

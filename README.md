@@ -15,7 +15,12 @@ $ php artisan key:generate
 $ php artisan storage:link
 $ chmod -R 777 storage bootstrap/cache
 $ php artisan migrate
-$ php artisan db:seed
+$ exit
+```
+- cd into src now and run <br/> 
+```bash
+$ npm install
+$ npm run build
 ```
 - You can now see the app running at localhost
 
